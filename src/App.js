@@ -3,7 +3,7 @@ import { Counter } from "./features/counter/Counter";
 
 function App() {
   return (
-    <div className="App">
+    <div className="lg:flex lg:items-center lg:justify-center ">
       <Counter />
     </div>
   );
