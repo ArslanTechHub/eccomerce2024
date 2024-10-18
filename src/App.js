@@ -1,10 +1,10 @@
 
-
+import ProductList from "./features/product-list/ProductList";
 
 function App() {
   return (
-    <div >
-    
+    <div className="" >
+    <ProductList/>
     </div>
   );
 }
