@@ -3,7 +3,7 @@ import ProductList from "./features/product-list/ProductList";
 
 function App() {
   return (
-    <div className="" >
+    <div className="flex" >
     <ProductList/>
     </div>
   );
