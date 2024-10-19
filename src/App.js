@@ -1,9 +1,9 @@
-import ProductList from "./features/product-list/ProductList";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="flex items-center justify-center">
-      <ProductList />
+    <div >
+      <Home />
     </div>
   );
 }
