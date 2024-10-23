@@ -3,7 +3,7 @@ import ProductList from "../features/product-list/ProductList";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center">
       <Navbar>
         <ProductList></ProductList>
       </Navbar>
