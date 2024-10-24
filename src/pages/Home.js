@@ -3,7 +3,7 @@ import ProductList from "../features/product-list/ProductList";
 
 const Home = () => {
   return (
-    <div>
+    <div >
       <Navbar>
         <ProductList></ProductList>
       </Navbar>
