@@ -37,7 +37,7 @@ export default function Cart() {
   return (
     <div className="min-h-screen py-8 bg-gray-100">
       <div className="max-w-3xl px-4 mx-auto sm:px-6 lg:px-8">
-        <h1 className="text-2xl font-medium text-gray-900">Shopping Cart</h1>
+        <h1 className="flex items-center justify-center text-3xl font-medium text-gray-900"> Cart</h1>
         <div className="mt-8 bg-white rounded-lg shadow">
           <div className="px-4 py-6 sm:px-6">
             <div className="flow-root">

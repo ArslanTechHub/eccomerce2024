@@ -13,6 +13,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Children } from "react";
+import { Link } from "react-router-dom";
 
 const user = {
   name: "Tom Cook",
@@ -71,14 +72,20 @@ const Navbar = ({ children }) => {
               </div>
               <div className="hidden md:block">
                 <div className="flex items-center ml-4 md:ml-6">
-                  <button
-                    type="button"
-                    className="relative p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">View notifications</span>
-                    <ShoppingCartIcon aria-hidden="true" className="w-6 h-6" />
-                  </button>
+                  <Link to="/cart">
+                    <button
+                      type="button"
+                      className="relative p-1 text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    >
+                      <span className="absolute -inset-1.5" />
+                      <span className="sr-only">View notifications</span>
+                      <ShoppingCartIcon
+                        aria-hidden="true"
+                        className="w-6 h-6"
+                      />
+                    </button>
+                  </Link>
+
                   <span className="z-10 inline-flex items-center px-2 py-0 -ml-3 text-xs font-medium text-red-700 rounded-full mb-7 bg-red-50 ring-1 ring-inset ring-red-600/10">
                     3
                   </span>
@@ -168,13 +175,16 @@ const Navbar = ({ children }) => {
                     {user.email}
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className="relative flex-shrink-0 p-1 ml-auto text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <ShoppingCartIcon aria-hidden="true" className="w-6 h-6" />
-                </button>
+                <Link to="/cart">
+                  <button
+                    type="button"
+                    className="relative flex-shrink-0 p-1 ml-auto text-gray-400 bg-gray-800 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    <span className="absolute -inset-1.5" />
+
+                    <ShoppingCartIcon aria-hidden="true" className="w-6 h-6" />
+                  </button>
+                </Link>
                 <span className="z-10 inline-flex items-center px-2 py-0 -ml-3 text-xs font-medium text-red-700 rounded-full mb-7 bg-red-50 ring-1 ring-inset ring-red-600/10">
                   3
                 </span>

@@ -1,3 +1,4 @@
+import CartPage from "./pages/CartPage";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
@@ -7,7 +8,6 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import Cart from "./features/cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <Cart/>,
+    element: <CartPage />,
   },
 ]);
 
@@ -32,9 +32,6 @@ function App() {
   return (
     <div>
       <RouterProvider router={router} />
-      {/* <Home /> */}
-      {/* <LoginPage></LoginPage> */}
-      {/* <SignupPage/> */}
     </div>
   );
 }
