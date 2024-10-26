@@ -111,9 +111,12 @@ export default function Cart() {
               Shipping and taxes calculated at checkout.
             </p>
             <div className="mt-6">
+              <Link to ="/checkout">
               <button className="flex items-center justify-center w-full px-6 py-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700">
                 Checkout
               </button>
+              </Link>
+              
             </div>
             <div className="flex justify-center mt-6 text-sm text-center text-gray-500">
               <p>
