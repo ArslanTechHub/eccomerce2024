@@ -30,6 +30,25 @@ const products = [
   },
 ];
 
+const addresses = [
+    {
+        name: 'John Wick',
+        street: '11th Main',
+        city: 'Delhi',
+        pinCode: 110001,
+        state: 'Delhi',
+        phone: 12312321331
+    },
+    {
+        name: 'John Doe',
+        street: '15th Main',
+        city: 'Bangalore',
+        pinCode: 560034,
+        state: 'Karnataka',
+        phone: 1231231231
+    }
+];
+
 const Checkout = () => {
   const [cartProducts] = useState(products);
 
@@ -205,6 +224,34 @@ const Checkout = () => {
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                    Choose from Existing addresses
                   </p>
+
+
+
+                  <ul role="list" className="mt-4 divide-y divide-gray-100">
+        {addresses.map((address, index) => (
+          <li
+            key={index}
+            className="flex justify-between px-4 py-4 rounded-lg gap-x-6 hover:bg-gray-100"
+          >
+            <div className="flex items-start gap-x-4">
+              <input
+                type="radio"
+                name="address"
+                className="w-4 h-4 text-indigo-600 border-gray-300"
+              />
+              <div className="flex-auto min-w-0">
+                <p className="text-sm font-semibold text-gray-900">{address.name}</p>
+                <p className="mt-1 text-sm text-gray-500">{address.street}</p>
+                <p className="mt-1 text-sm text-gray-500">{address.pinCode}</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-end">
+              <p className="text-sm font-medium text-gray-900">Phone: {address.phone}</p>
+              <p className="text-sm text-gray-500">{address.city}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
 
                   <div className="mt-10 space-y-10">
                     <fieldset>
