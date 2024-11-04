@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  fetchAllProductsAsync,
   fetchProductByFiltersAsync,
   selectAllProducts,
 } from "../ProductSlice";
@@ -116,23 +115,35 @@ export default function ProductList() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const products = useSelector(selectAllProducts);
   const [filter, setFilter] = useState({});
+  const [sort, setSort] = useState({});
 
   const handleFilter = (e, section, option) => {
-    const newFilter = { ...filter, [section.id]: option.value };
+    console.log(e.target.checked);
+    const newFilter = { ...filter };
+    // TODO: on server it will support multiple categories
+    if(e.target.checked){
+      if (newFilter [section.id]) {
+        newFilter [section.id].push(option.value)
+      } else{
+        newFilter [section.id] = [option.value]
+      }
+    } else{
+      const index = newFilter [section.id].findIndex (el=>el===option.value)
+      newFilter.splice  (index, 1);
+    }
+    console.log({newFilter});
     setFilter(newFilter);
-    dispatch(fetchProductByFiltersAsync(newFilter));
-    console.log(section.id, option.value);
   };
-
+  
   const handleSort = (e, option) => {
-    const newFilter = { ...filter, _sort: option.sort, _order: option.order };
-    setFilter(newFilter);
-    dispatch(fetchProductByFiltersAsync(newFilter));
+    const sort = {  _sort: option.sort, _order: option.order };
+    console.log({ sort });
+    setSort(sort);
   };
 
   useEffect(() => {
-    dispatch(fetchAllProductsAsync());
-  }, [dispatch]);
+    dispatch(fetchProductByFiltersAsync({filter, sort}));
+}, [dispatch, filter,sort]);
 
   return (
     <div>
