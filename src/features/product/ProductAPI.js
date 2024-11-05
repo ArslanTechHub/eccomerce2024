@@ -6,6 +6,10 @@ export function fetchAllProducts() {
     resolve({ data });
   });
 }
+
+
+
+
 export function fetchProductByFilters(filter, sort) {
   // filter = {"category": ["smartphone","laptops"]}
   // sort = {_sort:"price",_order="desc"}

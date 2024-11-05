@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  fetchProductByFiltersAsync,
-  selectAllProducts,
-} from "../ProductSlice";
+import { fetchProductByFiltersAsync, selectAllProducts } from "../ProductSlice";
 import {
   Dialog,
   DialogBackdrop,
@@ -118,32 +115,35 @@ export default function ProductList() {
   const [sort, setSort] = useState({});
 
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
     const newFilter = { ...filter };
-    // TODO: on server it will support multiple categories
-    if(e.target.checked){
-      if (newFilter [section.id]) {
-        newFilter [section.id].push(option.value)
-      } else{
-        newFilter [section.id] = [option.value]
-      }
-    } else{
-      const index = newFilter [section.id].findIndex (el=>el===option.value)
-      newFilter.splice  (index, 1);
+    if (e.target.checked) {
+        if (newFilter[section.id]) {
+            newFilter[section.id].push(option.value);
+        } else {
+            newFilter[section.id] = [option.value];
+        }
+    } else {
+        const index = newFilter[section.id]?.findIndex(
+            (el) => el === option.value
+        );
+        if (index !== -1) {
+            newFilter[section.id].splice(index, 1);
+        }
     }
-    console.log({newFilter});
+    console.log({ newFilter });
     setFilter(newFilter);
-  };
-  
+};
+
+
   const handleSort = (e, option) => {
-    const sort = {  _sort: option.sort, _order: option.order };
+    const sort = { _sort: option.sort, _order: option.order };
     console.log({ sort });
     setSort(sort);
   };
 
   useEffect(() => {
-    dispatch(fetchProductByFiltersAsync({filter, sort}));
-}, [dispatch, filter,sort]);
+    dispatch(fetchProductByFiltersAsync({ filter, sort }));
+  }, [dispatch, filter, sort]);
 
   return (
     <div>
