@@ -143,7 +143,7 @@ export default function ProductList() {
   };
   const handlePage = (page) => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
-    console.log('Pagination changed:', pagination);
+   
     setPage(page);
   };
 
